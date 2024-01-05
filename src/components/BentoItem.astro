@@ -1,0 +1,49 @@
+---
+interface Props {
+  className?: string;
+  title: string;
+  image: string;
+  description: string;
+  date?: string;
+}
+
+const { title, image, className, description, date } = Astro.props;
+---
+
+<article
+  class={`
+    ${Astro.props.class}
+    ${className}
+    relative rounded-xl
+    backdrop-blur-md
+    border border-black/10
+    shadow-inner shadow-white/10
+    overflow-hidden
+    group
+`}
+>
+  <div
+    class="absolute z-10 bottom-0 top-0 w-full h-full
+    bg-gradient-to-b from-transparent from-40% via-black/50 to-black/80"
+  >
+  </div>
+  <div
+    class="absolute left-0 top-0 bottom-0 w-full
+           h-full group-hover:scale-110 transition-scale duration-1000 ease-in-out opacity-90
+           bg-center bg-cover bg-no-repeat bg-blue-950 bg-blend-luminosity -z-10"
+    style={`background-image: url('${image}')`}
+  >
+  </div>
+  <div
+    class="relative select-none flex flex-col gap-1 p-6 text-lg z-20 justify-end h-full"
+  >
+    <h2 class="text-2xl font-semibold text-balance text-white mb-4">{title}</h2>
+    {
+      date && (
+        <h3 class="text-xl font-semibold text-sky-200/80 -mt-4">{date}</h3>
+      )
+    }
+
+    <p class="text-sm text-white" set:html={description} />
+  </div>
+</article>

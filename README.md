@@ -7,3 +7,4 @@ Creada para fines didacticos y educativos
 - https://bentogrids.com/
 - https://bennettfeely.com/clippy/
 - https://www.tailwindcss-animated.com/
+- https://squoosh.app/
